@@ -5,7 +5,7 @@ on:
 jobs:
   releases-matrix:
     name: release binary
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     strategy:
       matrix:
         goos: [linux, windows, darwin]
@@ -31,7 +31,7 @@ jobs:
           md5sum: FALSE
           sha256sum: TRUE
   publish-docker:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     strategy:
       fail-fast: false
       matrix:
